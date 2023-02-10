@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SampleRedditApp.Data;
 using Xunit;
-using SampleRedditApp.Data;
 using SampleRedditApp.Reddit;
 
 namespace SampleRedditApp.Reddit.Tests
@@ -12,7 +11,7 @@ namespace SampleRedditApp.Reddit.Tests
     public class RedditClientTests
     {
         [Fact]
-        public async Task SubscribeToStream_ShouldProcessPosts()
+        public void SubscribeToStream_ShouldProcessPosts()
         {
             // Arrange
             var dataStore = new DataStore();
@@ -22,8 +21,8 @@ namespace SampleRedditApp.Reddit.Tests
             dataStore.ProcessPost("This is the Body", "Subreddit 1");
 
             // Assert
-            var scorecard = dataStore.GetType().GetField("_SubRedditScoreCard", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(dataStore) as System.Collections.Concurrent.ConcurrentDictionary<string, int>;
-            Assert.True(scorecard.Count == 1);
+            var scorecard = dataStore!.GetType()!.GetField("_SubRedditScoreCard", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)!.GetValue(dataStore) as System.Collections.Concurrent.ConcurrentDictionary<string, int>;
+            Assert.True(scorecard!.Count == 1);
             Assert.True(scorecard["Subreddit 1"] == 1);
         }
     }

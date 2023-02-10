@@ -13,14 +13,14 @@ namespace SampleRedditApp.Data.Tests
             var dataStore = new DataStore();
             var type = typeof(DataStore);
             var scorecardField = type.GetField("_SubRedditScoreCard", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            var scorecard = (ConcurrentDictionary<string, int>)scorecardField.GetValue(dataStore);
+            var scorecard = scorecardField!.GetValue(dataStore) as ConcurrentDictionary<string, int>;
 
             // Act
             dataStore.ProcessPost("test post", "test subreddit");
 
             // Assert
-            Assert.Single(scorecard);
-            Assert.Equal(1, scorecard["test subreddit"]);
+            Assert.Single(scorecard!);
+            Assert.Equal(1, scorecard!["test subreddit"]);
         }
 
 
