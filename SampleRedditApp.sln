@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1704.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleRedditApp", "SampleRedditApp\SampleRedditApp.csproj", "{40E7D619-09E7-4C44-B86A-79D55FCB10E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D3481444-B54F-44AE-81E6-CC41333A926A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E7D619-09E7-4C44-B86A-79D55FCB10E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E7D619-09E7-4C44-B86A-79D55FCB10E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E7D619-09E7-4C44-B86A-79D55FCB10E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E7D619-09E7-4C44-B86A-79D55FCB10E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3481444-B54F-44AE-81E6-CC41333A926A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3481444-B54F-44AE-81E6-CC41333A926A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3481444-B54F-44AE-81E6-CC41333A926A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3481444-B54F-44AE-81E6-CC41333A926A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B64E16B-5778-45BF-AF8C-2E4625189A02}
+	EndGlobalSection
+EndGlobal
