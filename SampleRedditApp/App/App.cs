@@ -1,25 +1,37 @@
 ﻿using System;
+using System.Timers;
 using SampleRedditApp.Reddit;
 using SampleRedditApp.Data;
+using Timer = System.Timers.Timer;
 
 namespace SampleRedditApp.App
 {
-	public class App
-	{
-		private DataStore _dataStore = new DataStore();
+    public class App
+    {
+        private DataStore _dataStore = new DataStore();
+        private Timer _timer = new Timer(10000);
 
+        public App()
+        {
+            _timer.Elapsed += DumpData;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
+        }
 
-		public void Run()
-		{
-			RedditClient.SubscribeToStream(_dataStore);
-		}
+        public async Task Run()
+        {
+            try
+            {
+                await RedditClient.SubscribeToStream(_dataStore);
+            } catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
-		public void DumpData()
-		{
-			_dataStore.Dump();
-			Thread.Sleep(5000);
-			DumpData();
-		}
-	}
+        private void DumpData(object? sender, ElapsedEventArgs e)
+        {
+            _dataStore.Dump();
+        }
+    }
 }
-
